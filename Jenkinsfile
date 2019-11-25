@@ -1,13 +1,9 @@
 pipeline {
-    agent any
+    agent { docker { image 'python:3.5.1' } }
     stages {
         stage('build') {
             steps {
-                sh '''
-                whoami
-                source /etc/profile
-                python --version
-                '''
+                sh 'python --version'
             }
         }
     }
